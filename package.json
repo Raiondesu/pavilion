@@ -1,0 +1,16 @@
+{
+  "name": "pavilion",
+  "module": "pavilion.js",
+  "type": "module",
+  "scripts": {
+    "dev": "bun ./dev",
+    "build-example": "bun build ./example/index.html --outdir ./example-dist",
+    "build": "bun build ./pavilion.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}

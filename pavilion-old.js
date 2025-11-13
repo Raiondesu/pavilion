@@ -169,7 +169,7 @@ function renderTemplate(element, templatePath, component) {
 
 let componentUid = 1;
 
-class Component {
+export class Component {
   dependencyMap = {};
 
   constructor(options) {

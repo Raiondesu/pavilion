@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "target": "es2021",
+    "downlevelIteration": true,
+    "allowSyntheticDefaultImports": true,
+    "lib": ["DOM", "ES2021"],
+  },
+}

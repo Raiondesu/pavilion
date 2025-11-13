@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <input type="text" data-bind="text" @input="onInput" @blur="onBlur">
+    <p>Counter: <b>{{ computedValue }}</b></p>
+    <p>{{ text }} <b>{{ nan }}</b>, and i've got {{ counter }} + {{ counter2 }} = {{ all }} gold elements</p>
+    <div>
+      <button @click="startIntervals">Start counters</button>
+      <button @click="stopIntervals">Stop counters</button>
+      <button @click="onButtonClick">+ counter</button>
+      <button @click="resetCounters">Reset counters</button>
+    </div>
+    <br>
+    <input type="number" data-bind="some.nested.value">
+    <p>Some nested value: {{ some.nested.value }}</p>
+    <h1>Title is {{text}}</h1>
+    <select name="pets" data-bind="some.test">
+      <option value="">--Please choose an option--</option>
+      <option value="dog">Dog</option>
+      <option value="cat">Cat</option>
+      <option value="hamster">Hamster</option>
+      <option value="parrot">Parrot</option>
+      <option value="spider">Spider</option>
+      <option value="goldfish">Goldfish</option>
+    </select>
+    <p>Selected pet: {{some.test}}</p>
+    <label>
+      is checked: {{ isChecked }}
+      <input type="checkbox" name="" data-bind="isChecked" id="">
+    </label>
+    <button @click="onButtonClick">Increment</button>
+  </div>
+
+  <hr>
+  <div id="old-app">
+    <input type="text" data-bind="text" @input="onInput" @blur="onBlur">
+    <p>Counter: <b>{{ computedValue }}</b></p>
+    <p>{{ text }} <b>{{ nan }}</b>, and i've got {{ counter }} + {{ counter2 }} = {{ all }} gold elements</p>
+    <div>
+      <button @click="startIntervals">Start counters</button>
+      <button @click="stopIntervals">Stop counters</button>
+      <button @click="onButtonClick">+ counter</button>
+      <button @click="resetCounters">Reset counters</button>
+    </div>
+    <br>
+    <input type="number" data-bind="some.nested.value">
+    <p>Some nested value: {{ some.nested.value }}</p>
+    <h1>Title is {{text}}</h1>
+    <select name="pets" data-bind="some.test">
+      <option value="">--Please choose an option--</option>
+      <option value="dog">Dog</option>
+      <option value="cat">Cat</option>
+      <option value="hamster">Hamster</option>
+      <option value="parrot">Parrot</option>
+      <option value="spider">Spider</option>
+      <option value="goldfish">Goldfish</option>
+    </select>
+    <p>Selected pet: {{some.test}}</p>
+    <label>
+      is checked: {{ isChecked }}
+      <input type="checkbox" name="" data-bind="isChecked" id="">
+    </label>
+    <button @click="onButtonClick">Increment</button>
+  </div>
+
+  <hr>
+
+  <div id="app2"></div>
+
+  <template id="tpl-app2">
+    <input type="text" data-bind="title">
+    <section class="title">
+      <h1>{{title}}</h1>
+    </section>
+  </template>
+
+  <script src="app.ts" type="module"></script>
+  <script src="old-app.js" type="module"></script>
+</body>
+</html>
