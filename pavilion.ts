@@ -160,18 +160,24 @@ export function watch(cb: () => VoidFunction | void) {
   const unwatch = cb();
 
   watching = false;
+  const watchmaps: Array<Set<Function> | undefined> = [];
   watchers.forEach(state => {
     if (!watchMap.has(state)) {
       watchMap.set(state, new Set);
     }
 
-    watchMap.get(state)?.add(() => {
+    watchmaps.push(watchMap.get(state)?.add(() => {
       unwatch?.();
       cb();
-    });
+    }));
   });
 
   watchers.clear();
+
+  return () => {
+    unwatch?.();
+    watchmaps.forEach(w => w?.clear());
+  };
 }
 
 type Setter<T> = ((prev: T, original: T | undefined) => T);

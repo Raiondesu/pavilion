@@ -17,9 +17,8 @@ createComponent(render => {
   let interval1: number;
   let interval2: number;
 
-  const stopIntervals = () => [interval1, interval2].map(clearInterval);
   const startIntervals = () => {
-    watch(() => {
+    return watch(() => {
       interval1 = window.setInterval(() => {
         set(counter, old => old + 1);
       }, interval());
@@ -28,11 +27,13 @@ createComponent(render => {
         set(counter2, old => old + 1);
       });
 
-      return stopIntervals;
+      return () => {
+        [interval1, interval2].map(clearInterval);
+      }
     });
   };
 
-  startIntervals();
+  const stopIntervals = startIntervals();
 
   setInterval(() => {
     console.log('New interval:', set(interval, Math.random() * 10_000));
